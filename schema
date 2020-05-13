@@ -1,0 +1,245 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Nebula-Vis/Nebula-Vis.github.io/master/schema",
+  "$id": "https://raw.githubusercontent.com/Nebula-Vis/Nebula-Vis.github.io/master/schema",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {}
+          },
+          "hierarchy": {
+            "type": "object"
+          },
+          "nodes": {
+            "type": "array"
+          },
+          "links": {
+            "type": "array"
+          },
+          "path": {
+            "type": "string",
+            "format": "uri"
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "dependencies": {
+          "nodes": [
+            "links"
+          ]
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d+(fr|%|px)$"
+          },
+          "minItems": 1
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d+(fr|%|px)$"
+          },
+          "minItems": 1
+        },
+        "width": {
+          "type": "string",
+          "pattern": "^\\d+(%|px|vw)$"
+        },
+        "height": {
+          "type": "string",
+          "pattern": "^\\d+(%|px|vw)$"
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "rows",
+        "columns"
+      ],
+      "additionalProperties": false
+    },
+    "visualizations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "container": {
+            "type": "string",
+            "pattern": "^\\d+ \\d+ \\d+ \\d+$"
+          },
+          "visualization": {
+            "type": "string",
+            "pattern": "^(scatterplot|areachart|barchart|lineup|linechart|graph|select|tree|treemap|parallel|radial|button|input|slider|vegalite|piechart|donutchart|sectorchart|sunburstchart|map|heatmap2d)$"
+          },
+          "props": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "container",
+          "visualization"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "coordinations": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string",
+            "pattern": "^([a-z0-9 ,-_\\$]+)$"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "visualizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            },
+            "patternProperties": {
+              "^(how|what|why)$": {
+                "type": "string",
+                "pattern": "^([a-z0-9 ,-_\\$]+)$"
+              }
+            },
+            "required": [
+              "visualizations"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data-visualization": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "pattern": "^\\$([\\w-\\$]+)$"
+                    },
+                    "bind": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^([\\w-]+)\\.([\\w-]+)(\\.(bidirectional|unidirectional))?$"
+                      }
+                    }
+                  }
+                }
+              },
+              "transformation": {
+                "type": "object",
+                "properties": {
+                  "name": "string",
+                  "input": {
+                    "oneOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^\\$([\\w-\\$]+)$"
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string",
+                          "pattern": "^\\$([\\w-\\$]+)$"
+                        }
+                      }
+                    ]
+                  },
+                  "output": {
+                    "oneOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^\\$([\\w-\\$]+)$"
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string",
+                          "pattern": "^\\$([\\w-\\$]+)$"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "transformations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "output"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
