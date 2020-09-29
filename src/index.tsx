@@ -373,7 +373,7 @@ const Homepage: React.FC = () => {
                   margin: '5px 0',
                 }}
               >
-                Accessibility &amp; Efficiency
+                Usability
               </span>
               <span
                 style={{
@@ -418,8 +418,7 @@ const Homepage: React.FC = () => {
                 }}
               >
                 Integrate easily with third-party visualization tools. Enhance
-                expressiveness with more possibilities and accessibility &amp;
-                efficiency with users' previous knowledge.
+                expressiveness with more possibilities and usability with users' previous knowledge.
               </span>
             </div>
           </div>

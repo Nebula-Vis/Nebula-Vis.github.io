@@ -16,16 +16,17 @@ The grammar of graphics is used to create and lay out various visualizations wit
 
 Nebula specification consists of five parts:
 
+- **[Coordinations](/docs/coordinations)**, the coordinations between the views,
 - **[Data](/docs/data)**, the data sources used in MCVs,
 - **[Layout](/docs/layout)**, the layout of the views,
 - **[Visualizations](/docs/visualizations)**, the visualizations used in the views,
-- **[Coordinations](/docs/coordinations)**, the coordinations between the views,
 - **[Transformations](/docs/transformations)**, the definition of custom transformations.
 
-The skeleton of a Nebula specification:
+The skeleton of a Nebula specification looks like:
 
 ```json
 {
+  "coordinations": [ ... ],
   "data": [
     {
       "name": ...,
@@ -48,7 +49,6 @@ The skeleton of a Nebula specification:
     },
     ...
   ],
-  "coordinations": [ ... ],
   "transformations": [
     {
       "name": ...,

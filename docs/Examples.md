@@ -18,6 +18,8 @@ All the examples can be found in the templates of the online [editor](/editor). 
 
 ## select-set
 
+Example 1
+
 ```json
 {
   "coordinations": ["select in chart1, then set data in chart2"],
@@ -142,6 +144,96 @@ const spec = {
 }
 
 export default () => <NebulaExample spec={spec} target="#select-set-example1" />
+```
+
+Example 2
+
+```json
+{
+  "coordinations": ["select items in chart1, then set data in chart2"],
+  "visualizations": [
+    {
+      "id": "chart1",
+      "visualization": "scatterplot",
+      "container": "1 1 1 1",
+      "props": {
+        "data": "cars"
+      }
+    },
+    {
+      "id": "chart2",
+      "visualization": "scatterplot",
+      "container": "1 1 2 2",
+      "props": {
+        "data": "cars",
+        "x": "power (hp)",
+        "y": "0-60 mph (s)",
+        "shouldUpdateScales": false
+      }
+    }
+  ],
+  "layout": {
+    "width": "700px",
+    "height": "350px",
+    "rows": ["1fr"],
+    "columns": ["1fr", "1fr"]
+  },
+  "data": [
+    {
+      "name": "cars",
+      "path": "https://nebula-vis.github.io/data/cars.csv",
+      "format": "csv"
+    }
+  ]
+}
+```
+
+<div id="select-set-example2"></div>
+
+```tsx | inline
+import React from 'react'
+import NebulaExample from '@/NebulaExample.tsx'
+const spec = {
+  coordinations: [
+    'select items in select-set-example2-chart1, then set data in select-set-example2-chart2',
+  ],
+  visualizations: [
+    {
+      id: 'select-set-example2-chart1',
+      visualization: 'scatterplot',
+      container: '1 1 1 1',
+      props: {
+        data: 'cars',
+      },
+    },
+    {
+      id: 'select-set-example2-chart2',
+      visualization: 'scatterplot',
+      container: '1 1 2 2',
+      props: {
+        data: 'cars',
+        x: 'power (hp)',
+        y: '0-60 mph (s)',
+        shouldUpdateScales: false,
+      },
+    },
+  ],
+  layout: {
+    width: '700px',
+    height: '350px',
+    rows: ['1fr'],
+    columns: ['1fr', '1fr'],
+  },
+  data: [
+    {
+      name: 'cars',
+      path: 'https://nebula-vis.github.io/data/cars.csv',
+      format: 'csv',
+    },
+  ],
+}
+
+export default () => <NebulaExample spec={spec} target="#select-set-example2" />
 ```
 
 ## select-select
@@ -712,65 +804,50 @@ export default () => (
 )
 ```
 
-## set-encode
+## encode-encode
+
+> // Experimental
 
 ```json
 {
   "coordinations": [
-    "set value in select-x, then encode x in scatterplot",
-    "set value in select-y, then encode y in scatterplot"
+    "encode size in chart1 with slider, then encode size in chart2"
   ],
   "visualizations": [
     {
-      "id": "select-x",
-      "visualization": "select",
+      "id": "slider",
+      "visualization": "slider",
       "container": "1 1 1 1",
       "props": {
-        "label": "Attribute for x channel",
-        "options": [
-          "economy (mpg)",
-          "cylinders",
-          "displacement (cc)",
-          "power (hp)",
-          "weight (lb)",
-          "0-60 mph (s)",
-          "year"
-        ],
-        "selected": "economy (mpg)"
+        "min": 1,
+        "max": 10,
+        "value": 4
       }
     },
     {
-      "id": "select-y",
-      "visualization": "select",
-      "container": "2 2 1 1",
-      "props": {
-        "label": "Attribute for y channel",
-        "options": [
-          "economy (mpg)",
-          "cylinders",
-          "displacement (cc)",
-          "power (hp)",
-          "weight (lb)",
-          "0-60 mph (s)",
-          "year"
-        ],
-        "selected": "cylinders"
-      }
-    },
-    {
-      "id": "scatterplot",
+      "id": "chart1",
       "visualization": "scatterplot",
-      "container": "1 2 2 2",
+      "container": "1 1 2 2",
       "props": {
         "data": "cars"
+      }
+    },
+    {
+      "id": "chart2",
+      "visualization": "scatterplot",
+      "container": "1 1 3 3",
+      "props": {
+        "data": "cars",
+        "x": "power (hp)",
+        "y": "0-60 mph (s)"
       }
     }
   ],
   "layout": {
     "width": "700px",
     "height": "350px",
-    "rows": ["1fr", "1fr"],
-    "columns": ["1fr", "1fr"]
+    "rows": ["1fr"],
+    "columns": ["150px", "1fr", "1fr"]
   },
   "data": [
     {
@@ -782,78 +859,63 @@ export default () => (
 }
 ```
 
-<div id="set-encode-example1"></div>
+<div id="encode-encode-example1"></div>
 
 ```tsx | inline
 import React from 'react'
 import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
-    'set value in set-encode-example1-chart1, then encode x in set-encode-example1-chart3',
-    'set value in set-encode-example1-chart2, then encode y in set-encode-example1-chart3',
+    'set value in encode-encode-example1-slider, then encode size in encode-encode-example1-chart1 and encode-encode-example1-chart2',
   ],
   visualizations: [
     {
-      id: 'set-encode-example1-chart1',
-      visualization: 'select',
+      id: 'encode-encode-example1-slider',
+      visualization: 'slider',
       container: '1 1 1 1',
       props: {
-        label: 'Attribute for x channel',
-        options: [
-          'economy (mpg)',
-          'cylinders',
-          'displacement (cc)',
-          'power (hp)',
-          'weight (lb)',
-          '0-60 mph (s)',
-          'year',
-        ],
-        selected: 'economy (mpg)',
+        min: 1,
+        max: 10,
+        value: 4,
       },
     },
     {
-      id: 'set-encode-example1-chart2',
-      visualization: 'select',
-      container: '2 2 1 1',
-      props: {
-        label: 'Attribute for y channel',
-        options: [
-          'economy (mpg)',
-          'cylinders',
-          'displacement (cc)',
-          'power (hp)',
-          'weight (lb)',
-          '0-60 mph (s)',
-          'year',
-        ],
-        selected: 'cylinders',
-      },
-    },
-    {
-      id: 'set-encode-example1-chart3',
+      id: 'encode-encode-example1-chart1',
       visualization: 'scatterplot',
-      container: '1 2 2 2',
+      container: '1 1 2 2',
       props: {
         data: 'cars',
+      },
+    },
+    {
+      id: 'encode-encode-example1-chart2',
+      visualization: 'scatterplot',
+      container: '1 1 3 3',
+      props: {
+        data: 'cars',
+        x: 'power (hp)',
+        y: '0-60 mph (s)',
       },
     },
   ],
   layout: {
     width: '700px',
     height: '350px',
-    rows: ['1fr', '1fr'],
-    columns: ['1fr', '1fr'],
+    rows: ['1fr'],
+    columns: ['150px', '1fr', '1fr'],
   },
   data: [
     {
       name: 'cars',
-      path: '/data/cars.csv',
+      path: 'https://nebula-vis.github.io/data/cars.csv',
       format: 'csv',
     },
   ],
 }
 
-export default () => <NebulaExample spec={spec} target="#set-encode-example1" />
+export default () => (
+  <NebulaExample spec={spec} target="#encode-encode-example1" />
+)
 ```
 
 ## reconfigure-reconfigure

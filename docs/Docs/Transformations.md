@@ -34,21 +34,6 @@ Create an array of unique values that are included in all given arrays.
 {
   // ...
   "coordinations": [
-    {
-      // low-level-grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.selection"] },
-        { "name": "$d2", "bind": ["chart2.selection"] },
-        { "name": "$d3", "bind": ["chart3.selection.unidirectional"] }
-      ],
-      "transformation": {
-        "name": "intersect",
-        "input": ["$d1", "$d2"], // [array1, array2]
-        "output": ["$d3"], // [intersection]
-        "triggers": "any"
-      }
-    },
-    // high-level-grammar
     "select in chart1 and chart2, then intersect with $1 and $2, then select in chart3"
   ]
 }
@@ -155,19 +140,6 @@ Aggregate an array into one record.
 {
   // ...
   "coordinations": [
-    {
-      // low-level-grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.selection"] },
-        { "name": "$d2", "bind": ["input-component.value"] }
-      ],
-      "transformation": {
-        "name": "aggregate",
-        "input": ["$d1", "average", "attribute1"], // [arrays, type, key]
-        "output": ["$d2"] // [aggregation]
-      }
-    },
-    // high-level-grammar
     "select in chart1, then aggregate with $1, average, and attribute1, then set value in input-component"
   ]
 }
@@ -196,18 +168,7 @@ Transform data items into data ranges.
 {
   // ...
   "coordinations": [
-    {
-      // low-level-grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.selection"] },
-        { "name": "$d2", "bind": ["chart2.ranges"] }
-      ],
-      "transformation": {
-        "name": "items-to-ranges",
-        "input": ["$d1", ["attr1", "attr2"]], // [items, keys]
-        "output": ["$d2"] // [ranges]
-      }
-    }
+    "select items in chart1, then items-to-ranges with $1, then navigate in chart2"
   ]
 }
 ```
@@ -235,19 +196,7 @@ Transform data ranges into data items.
 {
   // ...
   "coordinations": [
-    {
-      // low-level-grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.ranges"] },
-        { "name": "$d2", "bind": ["chart2.data"]}
-        { "name": "$d3", "bind": ["chart2.selection"] }
-      ],
-      "transformation": {
-        "name": "ranges-to-items",
-        "input": ["$d1", "$d2"], // [ranges, data]
-        "output": ["$d3"] // [items]
-      }
-    }
+    "navigate in chart1, then ranges-to-items with $1 and data-of-chart2, then select in chart2"
   ]
 }
 ```
@@ -277,19 +226,7 @@ Transform data ranges into data items by filtering.
 {
   // ...
   "coordinations": [
-    {
-      // low-level-grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.selection"] },
-        { "name": "$d2", "bind": ["chart2.data"] },
-        { "name": "$d3", "bind": ["chart2.selection.unidirectional"] }
-      ],
-      "transformation": {
-        "name": "items-to-ranges",
-        "input": ["$d1", "originId", "destinationId", "$d2"], // [originItems, originKey, destinationKey, destinationData]
-        "output": ["$d3"] // [destinationItems]
-      }
-    }
+    "select in chart1, then match with $1, key1, key2, and data, then select in chart2"
   ]
 }
 ```
@@ -328,19 +265,6 @@ Usage
 {
   // ...
   "coordinations": [
-    {
-      // low-level grammar
-      "data-visualization": [
-        { "name": "$d1", "bind": ["chart1.selection"] },
-        { "name": "$d2", "bind": ["chart2.data"] }
-      ],
-      "transformation": {
-        "name": "kmeans",
-        "input": ["$d1", 5], // [array, k]
-        "output": ["$d2"] // [array]
-      }
-    },
-    // high-level grammar
     "select in chart1, then kmeans with $1 and 5, then set data in chart2"
   ]
 }

@@ -59,6 +59,44 @@ export default {
 `,
     imgSrc: '/assets/fig-covid.png',
   },
+  'select-set-2': {
+    spec: `{
+      "coordinations": ["select items in chart1, then set data in chart2"],
+      "visualizations": [
+        {
+          "id": "chart1",
+          "visualization": "scatterplot",
+          "container": "1 1 1 1",
+          "props": {
+            "data": "cars"
+          }
+        },
+        {
+          "id": "chart2",
+          "visualization": "scatterplot",
+          "container": "1 1 2 2",
+          "props": {
+            "data": "cars",
+            "shouldUpdateScales": false
+          }
+        }
+      ],
+      "layout": {
+        "width": "700px",
+        "height": "350px",
+        "rows": ["1fr"],
+        "columns": ["1fr", "1fr"]
+      },
+      "data": [
+        {
+          "name": "cars",
+          "path": "https://nebula-vis.github.io/data/cars.csv",
+          "format": "csv"
+        }
+      ]
+    }`,
+    imgSrc: '/assets/fig-select-set-2.png'
+  },
   'select-select-any-others': {
     spec: `{
   "coordinations": [
