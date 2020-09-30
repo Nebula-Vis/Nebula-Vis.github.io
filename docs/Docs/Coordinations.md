@@ -11,7 +11,7 @@ Nebula grammar adopts rule-based natural language commands to express the coordi
 
 ## Grammar
 
-Each coordination can be specified with a single string containing the manipulation on the origin and destination sides or an object containing such string and a list of IDs of the affected visualizations.
+Each coordination can be specified with a single string containing the interactions on the origin and destination sides or an object containing such string and a list of IDs of the affected visualizations.
 
 For the latter, the structure is like:
 
@@ -26,16 +26,21 @@ The how string consists of three blocks of substrings that describe the origin, 
 
 | Block          | Syntax                                                         | Note     |
 | -------------- | -------------------------------------------------------------- | -------- |
-| Origin         | `[<Method> (<Target>) in <Visualization>]`                     | Required |
-| Transformation | `(Trigger) <Transformation> (with [Parameters])`               | Optional |
-| Destination    | `[<Method> (<Target>) in <Visualization> (with <Parameters>)]` | Required |
-| Trigger        | <code>when any&#124; when button clicked</code>                | Optional |
+| Origin         | `<type> <target> in <view>`                     | Required |
+| Transformation | `when <trigger>, <name> with <parameter>`               | Optional |
+| Destination    | ` <type> <target> in <view> with <parameter>` | Required |
 
-### Manipulation Methods
+For the origin block, the _type_ field identifies the interaction type from the seven interaction categories, the _target_ field specifies the target manipulated by the interaction, and the _view_ field defines which view is interacted with. 
 
-The manipulation methods represent user interactions on the origin side of a coordination or responses that mimic user interactions on the destination side.
+For the transformation block, the _trigger_ field is optional and used to define a conditional statement when the data transformation would be executed(e.g., click a button), the _name_ field registers the name of the data transformation in Nebula, and the _parameter_ field specifies the data sources of the transformation, which are mainly from pre-loaded datasets, literal constants, and interactions in _origin_. 
 
-| Name        | Description                                          | Synonyms                                          | Default Target |
+For the destination block, the _type_, _target_, and _view_ fields are the same as those in _origin_, and the _parameter_ field specifies the parameter to trigger this interaction.  
+
+### Interactions
+
+The interactions represent user interactions on the origin side of a coordination or responses that mimic user interactions on the destination side.
+
+| Name       | Description                                          | Synonyms                                          | Default Target |
 | ----------- | ---------------------------------------------------- | ------------------------------------------------- | -------------- |
 | select      | select some data items of interest from all the data | highlight                                         | items          |
 | filter      | filter out some data items that are not interesting  |                                                   | items          |
@@ -52,10 +57,7 @@ Key words are reserved for denoting the grammar structures.
 | Name       | Type        | Description                                                                                               |
 | ---------- | ----------- | --------------------------------------------------------------------------------------------------------- |
 | then       | Conjunction | Partition three blocks.                                                                                   |
-| and        | Conjunction |                                                                                                           |
 | \$(number) | Data        | `$, $1, $2`                                                                                               |
-| in         | Preposition | `n <Visualization>`                                                                                       |
-| with       | Preposition | `with <Parameter>`                                                                                        |
 | any        | Pronoun     | <code>&lt;Method&gt; (&lt;Target&gt;) in one &#124; any, &lt;Method&gt; (&lt;Target&gt;) in others</code> |
 | others     | Pronoun     |                                                                                                           |
 

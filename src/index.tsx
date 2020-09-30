@@ -349,7 +349,7 @@ const Homepage: React.FC = () => {
                 }}
               >
                 Cover various coordination types differing in interaction and
-                manipulation methods along with simple data transformations and
+                interactions along with simple data transformations and
                 complex mining algorithms.
               </span>
             </div>

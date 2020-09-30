@@ -52,7 +52,7 @@ See below for the structure of the `prop` field of each visualization type.
 
 ### Scatterplot
 
-| Properties     | Type                       | Description                                                                                                  | Manipulation Method | Target |
+| Properties     | Type                       | Description                                                                                                  | Interaction | Target |
 | -------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------- | ------ |
 | data           | `string`                   | The data name. **Note**: it receives data value array in visualization implementation.                       | set                 | data   |
 | x              | `string`                   | The data field encoded by the x channel. **Default**: the first quantitative attribute's name of the data.   | encode              | x      |
@@ -299,7 +299,7 @@ export default () => (
 
 ### Parallel Coordinates
 
-| Properties | Type     | Description             | Manipulation Method | Target |
+| Properties | Type     | Description             | Interaction | Target |
 | ---------- | -------- | ----------------------- | ------------------- | ------ |
 | data       | `Array`  | the data items          | set                 | data   |
 | color      | `string` | the stroke color        | encode              | data   |
@@ -376,7 +376,7 @@ export default () => (
 
 ### Radial Coordinates
 
-| Properties | Type     | Description             | Manipulation Method | Target |
+| Properties | Type     | Description             | Interaction | Target |
 | ---------- | -------- | ----------------------- | ------------------- | ------ |
 | data       | `Array`  | the data items          | set                 | data   |
 | color      | `string` | the stoke color         | encode              | data   |
@@ -448,7 +448,7 @@ export default () => (
 
 ### Pie Chart
 
-| Properties | Type     | Description                                     | Manipulation Method | Target |
+| Properties | Type     | Description                                     | Interaction | Target |
 | ---------- | -------- | ----------------------------------------------- | ------------------- | ------ |
 | data       | `Array`  | the data items                                  | set                 | data   |
 | x          | `string` | the data attribute encoded by x channel (range) | encode              | x      |
@@ -543,7 +543,7 @@ export default () => (
 
 ### Donut Chart
 
-| Properties | Type     | Description                                     | Manipulation Method | Target |
+| Properties | Type     | Description                                     | Interaction | Target |
 | ---------- | -------- | ----------------------------------------------- | ------------------- | ------ |
 | data       | `Array`  | the data items                                  | set                 | data   |
 | x          | `string` | the data attribute encoded by x channel (range) | encode              | x      |
@@ -640,7 +640,7 @@ export default () => (
 
 ### Sector Chart
 
-| Properties | Type     | Description                                     | Manipulation Method | Target |
+| Properties | Type     | Description                                     | Interaction | Target |
 | ---------- | -------- | ----------------------------------------------- | ------------------- | ------ |
 | data       | `Array`  | the data items                                  | set                 | data   |
 | x          | `string` | the data attribute encoded by x channel (range) | encode              | x      |
@@ -737,7 +737,7 @@ export default () => (
 
 ### Area Chart
 
-| Properties | Type                       | Description                                                                                           | Manipulation Method | Target |
+| Properties | Type                       | Description                                                                                           | Interaction | Target |
 | ---------- | -------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------- | ------ |
 | data       | `string`                   | The data name. **Note**: it receives data value array in visualization implementation.                | set                 | data   |
 | x          | `string`                   | **Default**: the first quantitative attribute's name of the data.                                     | encode              | x      |
@@ -845,7 +845,7 @@ export default () => (
 
 ### Heatmap
 
-| Properties | Type                       | Description                             | Manipulation Method | Target |
+| Properties | Type                       | Description                             | Interaction | Target |
 | ---------- | -------------------------- | --------------------------------------- | ------------------- | ------ |
 | data       | `Array`                    | the data items                          | set                 | data   |
 | x          | `string`                   | the data attribute encoded by x channel | encode              | x      |
@@ -930,7 +930,7 @@ export default () => (
 
 ### Tree
 
-| Properties | Type     | Description             | Manipulation Method | Target  |
+| Properties | Type     | Description             | Interaction | Target  |
 | ---------- | -------- | ----------------------- | ------------------- | ------- |
 | data       | `Object` | the data items          | set                 | data    |
 | selection  | `Object` | the selected data items | select              | subtree |
@@ -993,7 +993,7 @@ export default () => <VisualizationsExample spec={spec} target="#treeExample" />
 
 ### Treemap
 
-| Properties | Type     | Description             | Manipulation Method | Target  |
+| Properties | Type     | Description             | Interaction | Target  |
 | ---------- | -------- | ----------------------- | ------------------- | ------- |
 | data       | `Object` | the data items          | set                 | data    |
 | selection  | `Object` | the selected data items | select              | subtree |
@@ -1061,7 +1061,7 @@ export default () => (
 
 ### Sunburst Chart
 
-| Properties | Type     | Description             | Manipulation Method | Target |
+| Properties | Type     | Description             | Interaction | Target |
 | ---------- | -------- | ----------------------- | ------------------- | ------ |
 | data       | `Object` | the data items          | set                 | data   |
 | selection  | `Object` | the selected data items | select              | items  |
@@ -1129,7 +1129,7 @@ export default () => (
 
 ### Node-Link Graph
 
-| Properties | Type     | Description                                                                                                          | Manipulation Method | Target |
+| Properties | Type     | Description                                                                                                          | Interaction | Target |
 | ---------- | -------- | -------------------------------------------------------------------------------------------------------------------- | ------------------- | ------ |
 | data       | `string` | The data name. **Note**: it receives `{nodes: Array<Object>, links: Array<Object>}` in visualization implementation. | set                 | data   |
 | selection  | `Array`  | The collection of selected nodes. **Default**: all items in the nodes list.                                          | select              | items  |
@@ -1299,7 +1299,7 @@ export default () => <VisualizationsExample spec={spec} target="#mapExample" />
 
 ### Button
 
-| Properties | Type      | Description                                                                                                                           | Manipulation Method | Target |
+| Properties | Type      | Description                                                                                                                           | Interaction | Target |
 | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------ |
 | text       | `string`  | The text displayed on the button. **Default**: `''`                                                                                   | set                 | value  |
 | clicked    | `boolean` | The clicked status of the button. When button clicked set to true; after 50ms set to false. **Note**: not configurable through props. | -                   | -      |
@@ -1356,7 +1356,7 @@ export default () => (
 
 ### Input
 
-| Properties | Type     | Description                                                                                                                                  | Manipulation Method | Target |
+| Properties | Type     | Description                                                                                                                                  | Interaction | Target |
 | ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------ |
 | value      | `string` | The default value of the input. The string value may be parsed into a json object before passing to other visualizatoins. **Default**: `''`. | set                 | value  |
 | label      | `string` | The label of the input.                                                                                                                      | -                   | -      |
@@ -1413,7 +1413,7 @@ export default () => (
 
 ### Slider
 
-| Properties | Type     | Description                                            | Manipulation Method | Target |
+| Properties | Type     | Description                                            | Interaction | Target |
 | ---------- | -------- | ------------------------------------------------------ | ------------------- | ------ |
 | min        | `number` | The min value of the slider range. **_Required_**.     | -                   | -      |
 | max        | `number` | The max value of the slider range. **_Required_**.     | -                   | -      |
@@ -1475,7 +1475,7 @@ export default () => (
 
 ### Select
 
-| Properties | Type                          | Description                                             | Manipulation Method | Target |
+| Properties | Type                          | Description                                             | Interaction | Target |
 | ---------- | ----------------------------- | ------------------------------------------------------- | ------------------- | ------ |
 | options    | `Array<string>`               | The options of the select. **Default**: `[]`            | set                 | data   |
 | selected   | <code>string&#124;null</code> | The selected option of the select. **Default**: `null`. | set                 | value  |
@@ -1537,7 +1537,7 @@ export default () => (
 
 Integrates some of the simple functionalities of [LineUpJs](https://github.com/lineupjs/lineupjs). Supports quantitative fields only.
 
-| Properties   | Type            | Description                                                                                  | Manipulation Method | Target |
+| Properties   | Type            | Description                                                                                  | Interaction | Target |
 | ------------ | --------------- | -------------------------------------------------------------------------------------------- | ------------------- | ------ |
 | data         | `string`        | The data name. **Note**: it receives data value array in visualization implementation.       | set                 | data   |
 | selection    | `Array`         | The collection of selected data items. **Default**: all items in data field.                 | select              | items  |
@@ -1608,7 +1608,7 @@ export default () => (
 
 Integrates some of the functionalities of [Vega-Lite](https://vega.github.io/vega-lite/).
 
-| Properties | Type     | Description                                                           | Manipulation Method | Target       |
+| Properties | Type     | Description                                                           | Interaction | Target       |
 | ---------- | -------- | --------------------------------------------------------------------- | ------------------- | ------------ |
 | data       | `string` | **Note**: only supports named data sources that refer to global data. | set                 | data         |
 | selection  | `Object` | The Vega-Lite selection specification.                                | select              | items/ranges |
