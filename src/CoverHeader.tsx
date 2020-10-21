@@ -80,7 +80,7 @@ export default class Editor extends React.Component<{ subject: string }> {
             >
               Tutorial
             </a> */}
-            <a
+            {/* <a
               href="/docs"
               style={{
                 marginLeft: '2.8vw',
@@ -88,7 +88,7 @@ export default class Editor extends React.Component<{ subject: string }> {
               }}
             >
               Docs
-            </a>
+            </a> */}
             <a
               href="/examples"
               style={{
@@ -125,7 +125,7 @@ export default class Editor extends React.Component<{ subject: string }> {
             >
               Github
             </a>
-            <a
+            {/* <a
               href="/editor"
               style={{
                 marginRight: '2.8vw',
@@ -133,7 +133,7 @@ export default class Editor extends React.Component<{ subject: string }> {
               }}
             >
               Editor
-            </a>
+            </a> */}
             {/* <a
               href="/404"
               style={{

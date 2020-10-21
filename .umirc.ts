@@ -21,10 +21,10 @@ export default defineConfig({
     //   title: 'Tutorial',
     //   path: '/tutorial',
     // },
-    {
-      title: 'Docs',
-      path: '/docs',
-    },
+    // {
+    //   title: 'Docs',
+    //   path: '/docs',
+    // },
     {
       title: 'Examples',
       path: '/examples',
@@ -33,10 +33,10 @@ export default defineConfig({
       title: 'Survey',
       path: '/survey',
     },
-    {
-      title: 'Editor',
-      path: '/editor',
-    },
+    // {
+    //   title: 'Editor',
+    //   path: '/editor',
+    // },
     {
       title: 'GitHub',
       path: 'https://github.com/Nebula-Vis/nebula',
