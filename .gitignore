@@ -20,3 +20,13 @@
 /.env.local
 src/.umi/*
 src/.umi-production/**
+
+# latex
+src/references/*.aux
+src/references/*.bbl
+src/references/*.blg
+src/references/*.fdb_latexmk
+src/references/*.fls
+src/references/*.log
+src/references/*.pdf
+src/references/*.gz
