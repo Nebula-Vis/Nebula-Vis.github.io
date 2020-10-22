@@ -21,11 +21,11 @@ export default class NebulaExample extends React.Component<{
       const container = document.createElement('div')
       container.style.display = 'flex'
       const leftContainer = document.createElement('div')
-      leftContainer.style.flex = '0.4'
-      leftContainer.style.maxWidth = '40%'
+      leftContainer.style.flex = '1'
+      leftContainer.style.maxWidth = '50%'
       leftContainer.style.marginRight = '30px'
-      ;(target as HTMLElement).style.flex = '0.6'
-      ;(target as HTMLElement).style.maxWidth = '60%'
+      ;(target as HTMLElement).style.flex = '1'
+      ;(target as HTMLElement).style.maxWidth = '50%'
       ;(target as HTMLElement).style.minWidth = this.props.spec.layout.width
 
       const nodeList = Array.from(parentElement?.childNodes || [])
@@ -45,11 +45,11 @@ export default class NebulaExample extends React.Component<{
     } else {
       ;(target as HTMLElement).style.height = this.props.spec.layout.height
       ;(target as HTMLElement).style.marginTop = '50px'
+      ;(target as HTMLElement).style.display = 'flex'
+      ;(target as HTMLElement).style.alignItems = 'center'
+      ;(target as HTMLElement).style.justifyContent = 'center'
     }
 
-    ;(target as HTMLElement).style.display = 'flex'
-    ;(target as HTMLElement).style.alignItems = 'center'
-    ;(target as HTMLElement).style.justifyContent = 'center'
     const nebulaInstance = new Nebula(this.props.target, this.props.spec)
     nebulaInstance.init()
   }

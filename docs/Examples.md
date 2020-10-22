@@ -12,87 +12,7 @@ export default () => <CoverHeader subject="examples" />
 
 # Examples
 
-## select-select
-
-An example of MCVs showing an interactive scatterplot
-matrix, where the points selected by users in any scatterplot will highlight
-the corresponding points in the other scatterplots.
-
-```
-"select items in any scatterplot,
- then highlight items in other scatterplots"
-```
-
-<div id="select-select-example1"></div>
-
-```tsx | inline
-import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
-const spec = {
-  coordinations: ['select items in any, then select items in others'],
-  visualizations: [
-    {
-      id: 'select-select-example1-chart1',
-      visualization: 'scatterplot',
-      container: '1 1 1 1',
-      props: {
-        data: 'cars',
-        x: 'Miles_per_Gallon',
-        y: 'Horsepower',
-      },
-    },
-    {
-      id: 'select-select-example1-chart2',
-      visualization: 'scatterplot',
-      container: '1 1 2 2',
-      props: {
-        data: 'cars',
-        x: 'Acceleration',
-        y: 'Horsepower',
-      },
-    },
-    {
-      id: 'select-select-example1-chart3',
-      visualization: 'scatterplot',
-      container: '2 2 1 1',
-      props: {
-        data: 'cars',
-        x: 'Miles_per_Gallon',
-        y: 'Acceleration',
-      },
-    },
-    {
-      id: 'select-select-example1-chart4',
-      visualization: 'scatterplot',
-      container: '2 2 2 2',
-      props: {
-        data: 'cars',
-        x: 'Acceleration',
-        y: 'Acceleration',
-      },
-    },
-  ],
-  layout: {
-    width: '600px',
-    height: '600px',
-    rows: ['1fr', '1fr'],
-    columns: ['1fr', '1fr'],
-  },
-  data: [
-    {
-      name: 'cars',
-      path: '/data/cars.json',
-      format: 'json',
-    },
-  ],
-}
-
-export default () => (
-  <NebulaExample spec={spec} target="#select-select-example1" />
-)
-```
-
-## with data transformation
+## 1. Data Transformation
 
 The points highlighted in the third scatterplot are the intersection of the selected points in the first and the second scatterplots.
 
@@ -161,7 +81,7 @@ export default () => (
 )
 ```
 
-## select-set
+## 2. Select-Set
 
 A example of Select → Set coordinations in two scatterplots, where the selection of the first scatterplot will modify the dataset in the second scatterplot.
 
@@ -220,7 +140,7 @@ const spec = {
 export default () => <NebulaExample spec={spec} target="#select-set-example2" />
 ```
 
-## select-filter
+## 3. Select-Filter
 
 A example of Select → Filter coordinations in two scatterplots, where the selection of the first scatterplot will be filtered in the second scatterplot.
 
@@ -280,9 +200,9 @@ export default () => (
 )
 ```
 
-## select-navigate
+## 4. Select-Navigate
 
-### Example1
+### Example 1
 
 A example of Select → Navigate coordinations in two scatterplots, where the selection of the first scatterplot will cause the navigation to the area in the second scatterplot.
 
@@ -342,7 +262,7 @@ export default () => (
 )
 ```
 
-### Example2
+### Example 2
 
 An example of Select → Navigate coordination in a scatterplot and a map, where the
 map will be navigated to the area according to the selected points in the scatterplot.
@@ -418,7 +338,7 @@ export default () => (
 )
 ```
 
-## navigate-navigate
+## 5. Navigate-Navigate
 
 An example of Navigate → Navigate coordination in a scatterplot and a map, where panning and zooming in the map will cause the corresponding panning and zooming in the scatterplot.
 
@@ -495,7 +415,7 @@ export default () => (
 <!-- ## select-reconfigure
 多选框+button+lineup，reconfigure order？ -->
 
-## navigate-select
+## 6. Navigate-Select
 
 An example of Navigate → Select coordination in a scatterplot and a map, where the points in the scatterplot will be highlighted if they fall in the area navigated in map.
 
@@ -584,7 +504,7 @@ export default () => (
 )
 ```
 
-## encode-encode
+## 7. Encode-Encode
 
 An example of Encode → Encode coordination, where modifying the value of the slider will change the point size in both scatterplots.
 
@@ -652,7 +572,7 @@ export default () => (
 )
 ```
 
-## reconfigure-reconfigure
+## 8. Reconfigure-Reconfigure
 
 An example of Reconfigure → Reconfigure coordination, where modifying the attribute order of the dataset in LineUp by dragging and
 dropping will also modify the stacking order of attributes in the stacked bar chart.
@@ -717,7 +637,7 @@ export default () => (
 )
 ```
 
-## Complex MCV
+## 9. SRVis
 
 The reproduction of the core module of [SRVis](https://ieeexplore.ieee.org/document/8456575) with six visualizations, i.e., a map, four histograms, and a [LineUp](https://github.com/lineupjs). It consists of five
 coordinations. 
