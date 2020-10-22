@@ -30,18 +30,15 @@ export default class NebulaExample extends React.Component<{
 
       const nodeList = Array.from(parentElement?.childNodes || [])
       nodeList.forEach(node => {
-        console.log((node as HTMLElement).tagName)
         if (
           ['pre', 'p'].includes((node as HTMLElement).tagName.toLowerCase())
         ) {
-          console.log('append', (node as HTMLElement).tagName)
           leftContainer.appendChild(node)
         }
       })
       container.appendChild(leftContainer)
       container.appendChild(target)
       parentElement?.appendChild(container)
-      console.log(parentElement)
     } else {
       ;(target as HTMLElement).style.height = this.props.spec.layout.height
       ;(target as HTMLElement).style.marginTop = '50px'
