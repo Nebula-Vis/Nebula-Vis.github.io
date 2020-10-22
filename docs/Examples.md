@@ -12,7 +12,7 @@ export default () => <CoverHeader subject="examples" />
 
 # Examples
 
-## 1. Data Transformation
+## 1. Select with Intersect
 
 The points highlighted in the third scatterplot are the intersection of the selected points in the first and the second scatterplots.
 
@@ -25,7 +25,7 @@ The points highlighted in the third scatterplot are the intersection of the sele
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'select in with-transformation-example1-chart1 and with-transformation-example1-chart2, then intersect with $1 and $2, then select in with-transformation-example1-chart3',
@@ -94,7 +94,7 @@ A example of Select → Set coordinations in two scatterplots, where the selecti
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-set-example2-chart1, then set data in select-set-example2-chart2',
@@ -153,7 +153,7 @@ A example of Select → Filter coordinations in two scatterplots, where the sele
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-filter-example1-chart1, then filter items in select-filter-example1-chart2',
@@ -215,7 +215,7 @@ A example of Select → Navigate coordinations in two scatterplots, where the se
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-navigate-example1-chart1, then navigate ranges in select-navigate-example1-chart2',
@@ -277,7 +277,7 @@ map will be navigated to the area according to the selected points in the scatte
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-navigate-example2-chart1, then navigate ranges in select-navigate-example2-chart2',
@@ -351,7 +351,7 @@ An example of Navigate → Navigate coordination in a scatterplot and a map, whe
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'navigate ranges in navigate-navigate-example1-chart1, then navigate ranges in navigate-navigate-example1-chart2',
@@ -429,7 +429,7 @@ An example of Navigate → Select coordination in a scatterplot and a map, where
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     {
@@ -517,7 +517,7 @@ An example of Encode → Encode coordination, where modifying the value of the s
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'set value in encode-encode-example1-slider, then encode size in encode-encode-example1-chart1 and encode-encode-example1-chart2',
@@ -586,7 +586,7 @@ dropping will also modify the stacking order of attributes in the stacked bar ch
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 const spec = {
   coordinations: [
     'reconfigure order in reconfigure-reconfigure-example1-chart1, then reconfigure order in reconfigure-reconfigure-example1-chart2',
@@ -665,21 +665,11 @@ that in the stacked histograms to keep their order consistent.
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/NebulaExample.tsx'
+import NebulaExample from '@/AsyncNebulaExample.tsx'
 
 const spec = {
   coordinations: [
     'select items in map, then set data in histo-top, histo-left, stackedbar-right, and stackedbar-bottom, select items in lineup',
-    {
-      how: 'select ranges in any, then select ranges in others',
-      visualizations: [
-        'histo-top',
-        'histo-left',
-        'stackedbar-right',
-        'stackedbar-bottom',
-        'map',
-      ],
-    },
     'navigate ranges in map, then navigate ranges in histo-top, histo-left, stackedbar-right, stackedbar-bottom',
     'navigate items in map, then set data in lineup',
     'reconfigure order in lineup, then encode y in stackedbar-right, stackedbar-bottom',
