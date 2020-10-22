@@ -50,5 +50,5 @@ export default defineConfig({
   // scripts: [
   //   'https://raw.githubusercontent.com/Nebula-Vis/Nebula-Vis.github.io/master/nebula-vis.min.js',
   // ],
-  dynamicImport: {}
+  // dynamicImport: {}
 })

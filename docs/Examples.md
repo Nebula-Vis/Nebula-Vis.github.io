@@ -18,14 +18,15 @@ The points highlighted in the third scatterplot are the intersection of the sele
 
 ```
 "Select items in scatterplot1 and scatterplot2,
- then intersect, then highlight items in scatterplot3."
+ then intersect,
+ then highlight items in scatterplot3."
 ```
 
 <div id="with-transformation-example1"></div>
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'select in with-transformation-example1-chart1 and with-transformation-example1-chart2, then intersect with $1 and $2, then select in with-transformation-example1-chart3',
@@ -94,7 +95,7 @@ A example of Select → Set coordinations in two scatterplots, where the selecti
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-set-example2-chart1, then set data in select-set-example2-chart2',
@@ -153,7 +154,7 @@ A example of Select → Filter coordinations in two scatterplots, where the sele
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-filter-example1-chart1, then filter items in select-filter-example1-chart2',
@@ -215,7 +216,7 @@ A example of Select → Navigate coordinations in two scatterplots, where the se
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-navigate-example1-chart1, then navigate ranges in select-navigate-example1-chart2',
@@ -277,7 +278,7 @@ map will be navigated to the area according to the selected points in the scatte
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'select items in select-navigate-example2-chart1, then navigate ranges in select-navigate-example2-chart2',
@@ -351,7 +352,7 @@ An example of Navigate → Navigate coordination in a scatterplot and a map, whe
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'navigate ranges in navigate-navigate-example1-chart1, then navigate ranges in navigate-navigate-example1-chart2',
@@ -429,7 +430,7 @@ An example of Navigate → Select coordination in a scatterplot and a map, where
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     {
@@ -517,7 +518,7 @@ An example of Encode → Encode coordination, where modifying the value of the s
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'set value in encode-encode-example1-slider, then encode size in encode-encode-example1-chart1 and encode-encode-example1-chart2',
@@ -586,7 +587,7 @@ dropping will also modify the stacking order of attributes in the stacked bar ch
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 const spec = {
   coordinations: [
     'reconfigure order in reconfigure-reconfigure-example1-chart1, then reconfigure order in reconfigure-reconfigure-example1-chart2',
@@ -640,16 +641,16 @@ export default () => (
 ## 9. SRVis
 
 The reproduction of the core module of [SRVis](https://ieeexplore.ieee.org/document/8456575) with six visualizations, i.e., a map, four histograms, and a [LineUp](https://github.com/lineupjs). It consists of five
-coordinations. 
+coordinations.
 
 Specifically, selecting data of interest in the map will modify the dataset of the four histograms to present the statistical distributions
-of the selection along the longitude and latitude. Besides, the selection is also highlighted in the LineUp to show the details of dimensions. 
+of the selection along the longitude and latitude. Besides, the selection is also highlighted in the LineUp to show the details of dimensions.
 Panning
-and zooming in map will modify the scales of x (longitude) in the top and bottom histograms and 
+and zooming in map will modify the scales of x (longitude) in the top and bottom histograms and
 the scales of y (latitude) in the left and right
-histograms with a data transformation to transform 2D scales to 1D. 
+histograms with a data transformation to transform 2D scales to 1D.
 When panning and zooming, the visible data in the map is extracted by a
-data transformation and fed into the LineUp to keep their datasets consistent. 
+data transformation and fed into the LineUp to keep their datasets consistent.
 Rearranging the order of dimensions in the LineUp will update
 that in the stacked histograms to keep their order consistent.
 
@@ -665,7 +666,7 @@ that in the stacked histograms to keep their order consistent.
 
 ```tsx | inline
 import React from 'react'
-import NebulaExample from '@/AsyncNebulaExample.tsx'
+import NebulaExample from '@/NebulaExample.tsx'
 
 const spec = {
   coordinations: [
@@ -813,4 +814,20 @@ const spec = {
 export default () => (
   <NebulaExample spec={spec} target="#srvis" position="vertical" />
 )
+```
+
+```tsx | inline
+import React from 'react'
+class ChangeCodeColor extends React.Component {
+  componentDidMount() {
+    document.querySelectorAll('.markdown pre code').forEach(element => {
+      element.style.color = '#d56161'
+    })
+  }
+
+  render() {
+    return <span></span>
+  }
+}
+export default () => <ChangeCodeColor/>
 ```
